@@ -7,8 +7,6 @@ import Hero from '../components/Hero/Hero';
 import About from '../components/About/About';
 import Skills from '../components/Skills/Skills';
 import Projects from '../components/Projects/Projects';
-import Experience from '../components/Experience/Experience';
-import Achievements from '../components/Achievements/Achievements';
 import Contact from '../components/Contact/Contact';
 import Navigation from '../components/Navigation/Navigation';
 
@@ -44,37 +42,6 @@ const mockProjects = [
     githubUrl: 'https://github.com/test/project',
     demoUrl: 'https://demo.test',
     imageUrl: '/test-image.jpg',
-  },
-];
-
-const mockExperience = [
-  {
-    id: '1',
-    title: 'Software Engineer',
-    company: 'Test Company',
-    duration: '2020-2023',
-    description: 'Worked on various projects',
-    icon: '💼',
-  },
-];
-
-const mockCertifications = [
-  {
-    id: '1',
-    name: 'AWS Certified',
-    issuer: 'Amazon',
-    date: '2023',
-    icon: '🏆',
-  },
-];
-
-const mockAchievements = [
-  {
-    id: '1',
-    title: 'Hackathon Winner',
-    description: 'Won first place',
-    icon: '🏆',
-    date: '2023',
   },
 ];
 
@@ -131,7 +98,7 @@ describe('Responsive Design - Requirement 12.1: Responsive Layouts', () => {
     });
 
     it('should render About section with mobile layout', () => {
-      render(<About />);
+      render(<About fullBio="Test bio content" />);
       const aboutSection = screen.getByRole('region', { name: /about/i });
       expect(aboutSection).toBeInTheDocument();
     });
@@ -300,7 +267,7 @@ describe('Responsive Design - Requirement 12.5: Minimum Touch Target Size (44x44
   });
 
   it('should have minimum 44x44px touch targets for About carousel buttons', () => {
-    render(<About />);
+    render(<About fullBio="Test bio content" />);
     const buttons = screen.getAllByRole('button');
     buttons.forEach((button) => {
       if (button.getAttribute('aria-label')?.includes('Previous') || 
@@ -394,7 +361,7 @@ describe('Responsive Design - Layout Adaptation', () => {
       { width: 1920, height: 1080, name: 'Desktop' },
     ];
 
-    breakpoints.forEach(({ width, height, name }) => {
+    breakpoints.forEach(({ width, height }) => {
       setViewport(width, height);
       const { unmount } = render(<Hero {...mockHeroProps} />);
       
