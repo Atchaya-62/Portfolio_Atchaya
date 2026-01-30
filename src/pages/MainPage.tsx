@@ -5,7 +5,7 @@ import { IntroAnimation } from '../components/IntroAnimation';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
-import CertificationBook from '../components/CertificationBook';
+import ExpandableCertifications from '../components/CertificationBook/ExpandableCertifications';
 import { portfolioData } from '../data/portfolioData';
 import type { ContactFormData } from '../types';
 
@@ -115,7 +115,7 @@ function MainPage() {
         </Suspense>
 
         {/* Certifications Section */}
-        <CertificationBook certifications={portfolioData.certifications} />
+        <ExpandableCertifications certifications={portfolioData.certifications} />
 
         {/* Contact Section */}
         <Suspense fallback={<SectionLoader />}>

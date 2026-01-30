@@ -1,0 +1,69 @@
+/* Certificate Cards - Light Theme Text Fix */
+
+/* Force black text in light theme for certificate cards */
+:root:not([data-theme="dark"]) .cert-card-title,
+:root:not([data-theme="dark"]) .cert-card-issuer,
+:root:not([data-theme="dark"]) .cert-card-date {
+  color: #000000 !important;
+}
+
+/* Dark theme keeps white text */
+[data-theme="dark"] .cert-card-title,
+[data-theme="dark"] .cert-card-issuer,
+[data-theme="dark"] .cert-card-date {
+  color: #F9FAFB !important;
+}
+
+/* Hover state - white text for both themes */
+.cert-card-item:hover .cert-card-title,
+.cert-card-item:hover .cert-card-issuer,
+.cert-card-item:hover .cert-card-date {
+  color: #FFFFFF !important;
+}
+
+/* Certificate card title - smaller size */
+.cert-card-title {
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.cert-card-issuer {
+  font-size: 0.85rem !important;
+}
+
+.cert-card-date {
+  font-size: 0.75rem !important;
+}
+
+/* Modal content text colors */
+:root:not([data-theme="dark"]) .cert-modal-title {
+  color: #111827 !important;
+  font-size: 1.25rem !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+:root:not([data-theme="dark"]) .cert-modal-text {
+  color: #374151 !important;
+}
+
+:root:not([data-theme="dark"]) .cert-modal-label {
+  color: #111827 !important;
+}
+
+[data-theme="dark"] .cert-modal-title {
+  color: #E5E7EB !important;
+  font-size: 1.25rem !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+[data-theme="dark"] .cert-modal-text {
+  color: #9CA3AF !important;
+}
+
+[data-theme="dark"] .cert-modal-label {
+  color: #D1D5DB !important;
+}

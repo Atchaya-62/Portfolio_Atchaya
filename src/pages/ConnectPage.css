@@ -732,3 +732,28 @@
     padding: 0.875rem 1.5rem;
   }
 }
+
+
+/* Light theme text visibility fixes */
+[data-theme="light"] .method-title,
+[data-theme="light"] .social-title,
+[data-theme="light"] .social-label,
+[data-theme="light"] .availability-title {
+  color: #000 !important;
+}
+
+[data-theme="light"] .method-description,
+[data-theme="light"] .availability-text {
+  color: #374151 !important;
+}
+
+[data-theme="light"] .social-link {
+  color: #000 !important;
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .social-link:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: #8b5cf6;
+}

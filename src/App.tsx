@@ -4,7 +4,6 @@ import MainPage from './pages/MainPage';
 import LoadingScreen from './components/LoadingScreen';
 
 // Lazy load route components for code splitting
-const BlogPage = lazy(() => import('./pages/BlogPage'));
 const ConnectPage = lazy(() => import('./pages/ConnectPage'));
 
 // Loading fallback component
@@ -48,7 +47,6 @@ function App() {
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<MainPage />} />
-              <Route path="/blog" element={<BlogPage />} />
               <Route path="/connect" element={<ConnectPage />} />
             </Routes>
           </Suspense>

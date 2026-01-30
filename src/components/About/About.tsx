@@ -64,11 +64,6 @@ const About: React.FC<AboutProps> = ({ fullBio }) => {
                   <span className="detail-label">FOCUS</span>
                   <span className="detail-value">ML + Full Stack Development</span>
                 </div>
-
-                <div className="profile-detail-item">
-                  <span className="detail-label">LOOKING FOR</span>
-                  <span className="detail-badge">Internship / Full-time</span>
-                </div>
               </div>
             </div>
 
@@ -85,19 +80,6 @@ const About: React.FC<AboutProps> = ({ fullBio }) => {
                   <span className="status-text">AVAILABLE</span>
                 </div>
                 <div className="availability-label">FOR HIRE</div>
-              </div>
-
-              <div className="location-card">
-                <div className="location-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
-                </div>
-                <div className="location-info">
-                  <span className="location-label">BASED IN</span>
-                  <span className="location-value">Coimbatore, IN</span>
-                </div>
               </div>
             </div>
           </motion.div>

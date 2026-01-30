@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Sparkles } from '../shared/Sparkles';
 import './LoadingScreen.css';
 
 interface LoadingScreenProps {
@@ -142,6 +143,30 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             AYA
           </motion.span>
         </div>
+
+        {/* Sparkles Animation Below Name */}
+        {stage >= 1 && (
+          <div className="sparkles-container" style={{ width: '40rem', height: '10rem', position: 'relative', marginTop: '2rem' }}>
+            {/* Gradients */}
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-blue-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px w-1/4" />
+            
+            {/* Sparkles Core */}
+            <Sparkles
+              background="transparent"
+              minSize={0.4}
+              maxSize={1}
+              particleDensity={800}
+              className="w-full h-full"
+              particleColor="#FFFFFF"
+            />
+            
+            {/* Radial Gradient to prevent sharp edges */}
+            <div className="absolute inset-0 w-full h-full [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]" style={{ pointerEvents: 'none' }}></div>
+          </div>
+        )}
 
         {/* Loading progress */}
         <div className="loading-bar-container">

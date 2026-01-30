@@ -7,10 +7,7 @@ export const portfolioData: PortfolioData = {
     subtitle: 'Building intelligent solutions with data and machine learning',
     aboutSummary: 'Passionate AI & Data Science student from Rathinam Technical Campus, Coimbatore. Dedicated to leveraging knowledge in Artificial Intelligence and Data Science to contribute effectively to organizational goals while developing professional and technical competencies.',
     photoUrl: '/images/profilephoto.jpeg',
-    fullBio: `I'm pursuing a Bachelor of Technology in Artificial Intelligence and Data Science (2023-2027) at Rathinam Technical Campus, Coimbatore with a CGPA of 9.45. 
-    My journey in AI began with a fascination for how machines can learn and adapt, and has evolved into a comprehensive 
-    exploration of machine learning, data analytics, and web development. I believe in the power of data-driven insights 
-    to transform industries and improve lives. I have strong communication skills, team working abilities, and problem-solving capabilities.`,
+  fullBio: `My interest in artificial intelligence stems from a curiosity about how machines learn and adapt, evolving into a strong focus on machine learning, data analytics, and web development. I am driven by the belief that data-driven insights can create meaningful impact and real-world change. I bring clear communication, a collaborative mindset, and a structured approach to problem-solving.`,
   },
   social: {
     linkedin: 'https://www.linkedin.com/in/atchayasaran',
@@ -215,17 +212,17 @@ export const portfolioData: PortfolioData = {
     {
       platform: 'LinkedIn',
       url: 'https://www.linkedin.com/in/atchayasaran',
-      icon: '💼',
+      icon: '/icons/icons8-linkedin-50.png',
     },
     {
       platform: 'GitHub',
       url: 'https://github.com/Atchaya-62',
-      icon: '🐙',
+      icon: '/icons/icons8-github-48.png',
     },
     {
       platform: 'Email',
       url: 'mailto:atchayasaran626@gmail.com',
-      icon: '📧',
+      icon: '/icons/icons8-email-50.png',
     },
   ],
 };

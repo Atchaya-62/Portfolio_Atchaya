@@ -1,6 +1,6 @@
 .contact-section {
   min-height: 100vh;
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,7 +279,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .contact-section {
-    padding: 4rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .contact-title {
@@ -306,7 +306,7 @@
 
 @media (max-width: 480px) {
   .contact-section {
-    padding: 3rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .contact-title {

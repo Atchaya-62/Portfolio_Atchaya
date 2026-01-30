@@ -296,7 +296,11 @@ const Contact: React.FC<ContactProps> = ({ onSubmit, socialLinks }) => {
                   whileTap="tap"
                 >
                   <span className="social-icon" aria-hidden="true">
-                    {link.icon}
+                    <img 
+                      src={link.icon} 
+                      alt="" 
+                      style={{ width: '48px', height: '48px', objectFit: 'contain' }}
+                    />
                   </span>
                   <span className="social-label">{link.platform}</span>
                 </motion.a>

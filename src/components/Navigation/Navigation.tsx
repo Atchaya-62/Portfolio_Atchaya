@@ -13,7 +13,6 @@ interface NavigationProps {
 const menuItems: MenuItem[] = [
   { id: 'home', label: 'Home', type: 'scroll', target: 'hero' },
   { id: 'projects', label: 'Projects', type: 'scroll', target: 'projects' },
-  { id: 'blog', label: 'Blog', type: 'route', target: '/blog' },
   { id: 'connect', label: 'Connect', type: 'route', target: '/connect' },
 ];
 
@@ -34,9 +33,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   // Determine active state based on current route
   useEffect(() => {
-    if (location.pathname === '/blog') {
-      setCurrentActive('blog');
-    } else if (location.pathname === '/connect') {
+    if (location.pathname === '/connect') {
       setCurrentActive('connect');
     } else if (location.pathname === '/') {
       // On main page, if no specific section is active or we're at the top, default to 'home'

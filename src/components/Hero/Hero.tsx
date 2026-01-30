@@ -24,7 +24,7 @@ const Hero: React.FC<HeroProps> = ({
   const [displayedName, setDisplayedName] = useState('');
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
-  // Typing animation effect
+  // Typing animation effect for name
   useEffect(() => {
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({
         setIsTypingComplete(true);
         clearInterval(typingInterval);
       }
-    }, 150); // Slower typing speed (was 100ms, now 150ms)
+    }, 100); // Typing speed: 100ms per character
 
     return () => clearInterval(typingInterval);
   }, [name]);
