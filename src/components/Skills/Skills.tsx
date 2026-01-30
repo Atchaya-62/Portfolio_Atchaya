@@ -27,7 +27,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
   const categoryInfo: Record<string, { title: string }> = {
     'Languages': { title: 'Languages' },
     'AI/ML': { title: 'AI / ML' },
-    'Data': { title: 'Data Science' },
+    'Data': { title: 'Data ' },
     'Tools': { title: 'Dev Tools' },
   };
 

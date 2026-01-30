@@ -19,7 +19,7 @@ export const portfolioData: PortfolioData = {
     // AI/ML Skills
     {
       name: 'Machine Learning',
-      level: 85,
+      level: 70,
       category: 'AI/ML',
       description: 'Experienced in supervised and unsupervised learning algorithms, including Multinomial Naive Bayes and scikit-learn.',
     },
@@ -37,14 +37,14 @@ export const portfolioData: PortfolioData = {
     },
     // Data Skills
     {
-      name: 'Data Visualization',
-      level: 85,
+      name: 'MySQL',
+      level: 75,
       category: 'Data',
       description: 'Creating insightful visualizations with Tableau. Certified in Fundamentals of Visualization with Tableau.',
     },
     {
       name: 'PostgreSQL',
-      level: 75,
+      level: 95,
       category: 'Data',
       description: 'Proficient in database querying and data manipulation.',
     },
@@ -57,7 +57,7 @@ export const portfolioData: PortfolioData = {
     // Languages
     {
       name: 'Python',
-      level: 85,
+      level: 75,
       category: 'Languages',
       description: 'Primary programming language for data science and machine learning projects.',
     },
@@ -124,7 +124,7 @@ export const portfolioData: PortfolioData = {
       name: 'AWS Academy Graduate – Machine Learning Foundations',
       issuer: 'AWS Academy',
       date: '30 December 2025',
-      icon: '',
+      icon: '/images/Amazon-Web-Services-AWS-Logo.png',
       certificateUrl: 'https://drive.google.com/file/d/1ni7uPv55XMXnOlMbEC7Dhfbk9d3f-yA7/view?usp=sharing',
     },
     {
@@ -132,7 +132,7 @@ export const portfolioData: PortfolioData = {
       name: 'Fundamentals of Visualization with Tableau',
       issuer: 'Coursera',
       date: '16 September 2025',
-      icon: '',
+      icon: '/images/Coursera.avif',
       certificateUrl: 'https://drive.google.com/file/d/1lcCVQwNS6c9bFcs2iDWt6rDdhOY-0b44/view?usp=sharing',
     },
     {
@@ -140,7 +140,7 @@ export const portfolioData: PortfolioData = {
       name: 'AWS Academy Graduate – Machine Learning for Natural Language Processing',
       issuer: 'AWS Academy',
       date: '10 January 2026 ',
-      icon: '',
+      icon: '/images/Amazon-Web-Services-AWS-Logo.png',
       certificateUrl: 'https://drive.google.com/file/d/1Ne-0VabT-gzGjE43RQblMNkrawO2xtVB/view?usp=sharing',
     },
     {
@@ -148,7 +148,7 @@ export const portfolioData: PortfolioData = {
       name: 'Full Stack Web Development Bootcamp',
       issuer: 'Marcello Tech',
       date: '11 December 2024 ',
-      icon: '',
+      icon: '/images/marcello.png',
       certificateUrl: 'https://drive.google.com/file/d/1wii_m9n71mfiXyZWRwjaDhDEcpZ3koBF/view?usp=sharing',
     },
   ],

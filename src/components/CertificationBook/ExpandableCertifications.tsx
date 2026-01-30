@@ -86,9 +86,17 @@ const ExpandableCertifications: React.FC<ExpandableCertificationsProps> = ({ cer
                 {/* Certificate Image/Icon */}
                 <motion.div
                   layoutId={`image-${active.id}-${id}`}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center"
+                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg bg-white flex items-center justify-center"
                 >
-                  <div className="text-8xl">{active.icon || "🏆"}</div>
+                  {active.icon ? (
+                    <img 
+                      src={active.icon} 
+                      alt={`${active.issuer} logo`}
+                      className="w-48 h-48 object-contain"
+                    />
+                  ) : (
+                    <div className="text-8xl">🏆</div>
+                  )}
                 </motion.div>
 
                 <div>
@@ -156,19 +164,39 @@ const ExpandableCertifications: React.FC<ExpandableCertificationsProps> = ({ cer
 
         {/* Certificate Cards List */}
         <ul className="max-w-2xl mx-auto w-full gap-4 space-y-4">
-          {certifications.map((cert) => (
+          {certifications.map((cert, index) => (
             <motion.div
               layoutId={`card-${cert.id}-${id}`}
               key={`card-${cert.id}-${id}`}
               onClick={() => setActive(cert)}
-              className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-purple-100 dark:hover:bg-neutral-800 rounded-xl cursor-pointer transition-colors group cert-card-item"
+              className={`p-4 flex flex-col md:flex-row justify-between items-center hover:bg-purple-100 dark:hover:bg-neutral-800 rounded-xl cursor-pointer transition-all duration-300 group cert-card-item ${
+                index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'
+              }`}
+              style={{
+                transform: index % 2 === 0 ? 'translateX(-40px)' : 'translateX(40px)',
+              }}
+              whileHover={{
+                scale: 1.05,
+                y: -8,
+                boxShadow: '0 20px 40px rgba(155, 135, 245, 0.3)',
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               <div className="flex gap-4 flex-col md:flex-row items-center md:items-start flex-1">
                 <motion.div
                   layoutId={`image-${cert.id}-${id}`}
-                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0"
+                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg bg-white flex items-center justify-center flex-shrink-0"
                 >
-                  <span className="text-4xl md:text-2xl">{cert.icon || "🏆"}</span>
+                  {cert.icon ? (
+                    <img 
+                      src={cert.icon} 
+                      alt={`${cert.issuer} logo`}
+                      className="w-32 h-32 md:w-10 md:h-10 object-contain"
+                    />
+                  ) : (
+                    <span className="text-4xl md:text-2xl">🏆</span>
+                  )}
                 </motion.div>
 
                 <div className="flex-1 text-center md:text-left">

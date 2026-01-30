@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 9999;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid;
@@ -11,13 +11,15 @@
 }
 
 [data-theme='light'] .navigation {
-  background: rgba(255, 255, 255, 0.6);
-  border-bottom-color: rgba(155, 135, 245, 0.2);
+  background: rgba(243, 240, 255, 0.95);
+  border-bottom-color: rgba(155, 135, 245, 0.3);
+  box-shadow: 0 2px 10px rgba(155, 135, 245, 0.1);
 }
 
 [data-theme='dark'] .navigation {
-  background: rgba(0, 0, 0, 0.6);
-  border-bottom-color: rgba(96, 165, 250, 0.2);
+  background: rgba(17, 24, 39, 0.95);
+  border-bottom-color: rgba(96, 165, 250, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navigation-container {
@@ -249,7 +251,7 @@
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 1200;
+  z-index: 100000 !important;
   border-radius: 0.375rem;
   transition: background 0.3s ease, transform 0.2s ease;
   position: relative;
@@ -310,20 +312,30 @@
 
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
   width: 80%;
   max-width: 300px;
-  background: var(--nav-background);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-left: 1px solid var(--nav-border);
-  z-index: 1100;
+  border-left: 1px solid;
+  z-index: 99999 !important;
   padding-top: 5rem;
   overflow-y: auto;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='light'] .mobile-menu-overlay {
+  background: rgba(243, 240, 255, 1) !important;
+  border-left-color: rgba(155, 135, 245, 0.5);
+  box-shadow: -4px 0 20px rgba(155, 135, 245, 0.3);
+}
+
+[data-theme='dark'] .mobile-menu-overlay {
+  background: rgba(17, 24, 39, 1) !important;
+  border-left-color: rgba(96, 165, 250, 0.5);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.7);
 }
 
 .mobile-menu-list {
@@ -451,15 +463,22 @@
 
 /* Mobile Menu Backdrop */
 .mobile-menu-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1050;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 99998 !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+[data-theme='light'] .mobile-menu-backdrop {
+  background: rgba(155, 135, 245, 0.4) !important;
+}
+
+[data-theme='dark'] .mobile-menu-backdrop {
+  background: rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Show hamburger button on mobile */
