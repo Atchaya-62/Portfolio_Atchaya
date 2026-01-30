@@ -1,0 +1,375 @@
+.character-3d-container {
+  position: relative;
+  width: 280px;
+  height: 350px;
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.avatar-character {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Head with long hair */
+.avatar-head {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 120px;
+  background: linear-gradient(135deg, #8B6F47, #A0826D);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+
+/* Long wavy hair */
+.avatar-hair {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 180px;
+  background: linear-gradient(180deg, #1a1a1a, #2d2d2d);
+  border-radius: 50% 50% 40% 40%;
+  z-index: 1;
+}
+
+.hair-wave {
+  position: absolute;
+  width: 30px;
+  height: 80px;
+  background: linear-gradient(180deg, #1a1a1a, #2d2d2d);
+  border-radius: 50%;
+  animation: hairSway 3s ease-in-out infinite;
+}
+
+.hair-wave.left {
+  left: -15px;
+  top: 60px;
+  animation-delay: 0.2s;
+}
+
+.hair-wave.right {
+  right: -15px;
+  top: 60px;
+  animation-delay: 0.4s;
+}
+
+@keyframes hairSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Face features */
+.avatar-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 70px;
+  height: 70px;
+}
+
+.avatar-eye {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #1F2937;
+  border-radius: 50%;
+  top: 20px;
+  animation: blink 4s infinite;
+}
+
+.avatar-eye::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+}
+
+@keyframes blink {
+  0%, 48%, 52%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.1);
+  }
+}
+
+.avatar-eye.left {
+  left: 15px;
+}
+
+.avatar-eye.right {
+  right: 15px;
+}
+
+.avatar-eyebrow {
+  position: absolute;
+  width: 18px;
+  height: 3px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  top: 12px;
+}
+
+.avatar-eyebrow.left {
+  left: 13px;
+  transform: rotate(-5deg);
+}
+
+.avatar-eyebrow.right {
+  right: 13px;
+  transform: rotate(5deg);
+}
+
+.avatar-nose {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.1), transparent);
+  border-radius: 50%;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.avatar-smile {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 18px;
+  border: 3px solid #8B4513;
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+}
+
+/* Red top */
+.avatar-body {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 90px;
+  z-index: 1;
+}
+
+.avatar-torso {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #DC143C, #FF1744);
+  border-radius: 12px 12px 8px 8px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+/* Arms */
+.avatar-arm {
+  position: absolute;
+  top: 170px;
+  width: 28px;
+  height: 75px;
+  background: linear-gradient(135deg, #DC143C, #FF1744);
+  border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: wave 2.5s ease-in-out infinite;
+}
+
+.avatar-arm.left {
+  left: 15px;
+  transform-origin: top center;
+}
+
+.avatar-arm.right {
+  right: 15px;
+  transform-origin: top center;
+  animation-delay: 1.25s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+.avatar-hand {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #8B6F47, #A0826D);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Watch on right hand */
+.avatar-watch {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 12px;
+  background: linear-gradient(135deg, #E8E8E8, #FFFFFF);
+  border: 2px solid #C0C0C0;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Blue jeans */
+.avatar-legs {
+  position: absolute;
+  top: 255px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.avatar-leg {
+  width: 35px;
+  height: 85px;
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.avatar-leg::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  width: 2px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+}
+
+/* Shadow */
+.character-shadow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 25px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.4), transparent);
+  border-radius: 50%;
+  animation: shadowPulse 3s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0.3;
+  }
+}
+
+/* Hover effects */
+.character-3d-container:hover .avatar-character {
+  animation-play-state: paused;
+}
+
+.character-3d-container:hover .avatar-arm {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .character-3d-container {
+    width: 220px;
+    height: 280px;
+  }
+
+  .avatar-head {
+    width: 80px;
+    height: 100px;
+  }
+
+  .avatar-hair {
+    width: 90px;
+    height: 150px;
+  }
+
+  .avatar-body {
+    width: 90px;
+    height: 75px;
+    top: 135px;
+  }
+
+  .avatar-arm {
+    width: 24px;
+    height: 60px;
+    top: 140px;
+  }
+
+  .avatar-legs {
+    width: 90px;
+    height: 70px;
+    top: 215px;
+  }
+
+  .avatar-leg {
+    width: 30px;
+    height: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-character,
+  .avatar-arm,
+  .character-shadow,
+  .hair-wave {
+    animation: none;
+  }
+
+  .character-3d-container {
+    transform: none !important;
+  }
+}

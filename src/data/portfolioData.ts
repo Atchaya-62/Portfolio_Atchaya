@@ -1,0 +1,231 @@
+import type { PortfolioData } from '../types';
+
+export const portfolioData: PortfolioData = {
+  owner: {
+    name: 'Atchaya S',
+    headline: 'AI Explorer',
+    subtitle: 'Building intelligent solutions with data and machine learning',
+    aboutSummary: 'Passionate AI & Data Science student from Rathinam Technical Campus, Coimbatore. Dedicated to leveraging knowledge in Artificial Intelligence and Data Science to contribute effectively to organizational goals while developing professional and technical competencies.',
+    photoUrl: 'profilephoto.jpeg',
+    fullBio: `I'm pursuing a Bachelor of Technology in Artificial Intelligence and Data Science (2023-2027) at Rathinam Technical Campus, Coimbatore with a CGPA of 9.45. 
+    My journey in AI began with a fascination for how machines can learn and adapt, and has evolved into a comprehensive 
+    exploration of machine learning, data analytics, and web development. I believe in the power of data-driven insights 
+    to transform industries and improve lives. I have strong communication skills, team working abilities, and problem-solving capabilities.`,
+  },
+  social: {
+    linkedin: 'https://www.linkedin.com/in/atchayasaran',
+    github: 'https://github.com/Atchaya-62',
+    twitter: '',
+    email: 'atchayasaran626@gmail.com',
+  },
+  skills: [
+    // AI/ML Skills
+    {
+      name: 'Machine Learning',
+      level: 85,
+      category: 'AI/ML',
+      description: 'Experienced in supervised and unsupervised learning algorithms, including Multinomial Naive Bayes and scikit-learn.',
+    },
+    {
+      name: 'Feature Engineering',
+      level: 80,
+      category: 'AI/ML',
+      description: 'Proficient in feature engineering and model evaluation techniques.',
+    },
+    {
+      name: 'EDA',
+      level: 85,
+      category: 'AI/ML',
+      description: 'Exploratory Data Analysis for understanding data patterns and insights.',
+    },
+    // Data Skills
+    {
+      name: 'Data Visualization',
+      level: 85,
+      category: 'Data',
+      description: 'Creating insightful visualizations with Tableau. Certified in Fundamentals of Visualization with Tableau.',
+    },
+    {
+      name: 'PostgreSQL',
+      level: 75,
+      category: 'Data',
+      description: 'Proficient in database querying and data manipulation.',
+    },
+    {
+      name: 'Tableau',
+      level: 80,
+      category: 'Tools',
+      description: 'Data visualization and business intelligence tool.',
+    },
+    // Languages
+    {
+      name: 'Python',
+      level: 85,
+      category: 'Languages',
+      description: 'Primary programming language for data science and machine learning projects.',
+    },
+    {
+      name: 'Java',
+      level: 95,
+      category: 'Languages',
+      description: 'Object-oriented programming and software development.',
+    },
+    {
+      name: 'HTML5',
+      level: 80,
+      category: 'Languages',
+      description: 'Web development and markup language.',
+    },
+    {
+      name: 'CSS',
+      level: 75,
+      category: 'Languages',
+      description: 'Styling and layout for web applications.',
+    },
+    {
+      name: 'JavaScript',
+      level: 75,
+      category: 'Languages',
+      description: 'Web development and interactive applications.',
+    },
+  ],
+  projects: [
+    {
+      id: 'movie-review-analyzer',
+      title: 'Movie Review Analyzer',
+      description: 'Built an interactive sentiment analysis system using Multinomial Naive Bayes and scikit-learn, deployed via Streamlit. Enables classifying movie reviews into positive or negative sentiments.',
+      techStack: ['Python', 'Scikit-learn', 'Streamlit', 'Naive Bayes'],
+      category: 'Machine Learning',
+      githubUrl: 'https://github.com/Atchaya-62/Movie_Review_Analyzer',
+      demoUrl: 'https://movie-review-analyzer-06.streamlit.app/',
+      imageUrl: 'Movie.jpg',
+    },
+    {
+      id: 'todo-app',
+      title: 'To-Do App',
+      description: 'Created a simple task management web application built using HTML, CSS, and JavaScript. Enables adding, completing, and deleting tasks with a clean and intuitive interface.',
+      techStack: ['HTML5', 'CSS', 'JavaScript'],
+      category: 'Web Development',
+      githubUrl: 'https://github.com/Atchaya-62/todo-app',
+      demoUrl: 'https://github.com/Atchaya-62/todo-app',
+      imageUrl: 'to_do_list.webp',
+    },
+  ],
+  experience: [
+    {
+      id: 'bootcamp',
+      title: 'Full Stack Web Development Bootcamp',
+      company: 'Marcello Tech, Trichy',
+      duration: 'Completed',
+      description: 'Learned to build dynamic web applications using HTML, CSS, and JavaScript. Gained hands-on experience in front-end development.',
+      icon: '💻',
+    },
+  ],
+  certifications: [
+    {
+      id: 'aws-cert',
+      name: 'AWS Academy Graduate – Machine Learning Foundations',
+      issuer: 'AWS Academy',
+      date: '30 December 2025',
+      icon: '',
+      certificateUrl: 'https://drive.google.com/file/d/1ni7uPv55XMXnOlMbEC7Dhfbk9d3f-yA7/view?usp=sharing',
+    },
+    {
+      id: 'tableau-viz',
+      name: 'Fundamentals of Visualization with Tableau',
+      issuer: 'Coursera',
+      date: '16 September 2025',
+      icon: '',
+      certificateUrl: 'https://drive.google.com/file/d/1lcCVQwNS6c9bFcs2iDWt6rDdhOY-0b44/view?usp=sharing',
+    },
+    {
+      id: 'aws-cert-2',
+      name: 'AWS Academy Graduate – Machine Learning for Natural Language Processing',
+      issuer: 'AWS Academy',
+      date: '10 January 2026 ',
+      icon: '',
+      certificateUrl: 'https://drive.google.com/file/d/1Ne-0VabT-gzGjE43RQblMNkrawO2xtVB/view?usp=sharing',
+    },
+    {
+      id: 'professional-cert',
+      name: 'Full Stack Web Development Bootcamp',
+      issuer: 'Marcello Tech',
+      date: '11 December 2024 ',
+      icon: '',
+      certificateUrl: 'https://drive.google.com/file/d/1wii_m9n71mfiXyZWRwjaDhDEcpZ3koBF/view?usp=sharing',
+    },
+  ],
+  achievements: [
+    {
+      id: 'academic-excellence',
+      title: 'Academic Excellence',
+      description: 'Maintaining CGPA of 9.45 in B.Tech AI & Data Science program at Rathinam Technical Campus.',
+      icon: '🎓',
+      date: '2023-2027',
+    },
+    {
+      id: 'hslc-achievement',
+      title: 'HSLC Excellence',
+      description: 'Scored 89.9% in 12th Grade from Tamil Nadu State Board at St. James Matric. Hr. Sec. School, Trichy.',
+      icon: '📚',
+      date: '2023',
+    },
+    {
+      id: 'leadership',
+      title: 'Leadership & Communication',
+      description: 'Demonstrated strong leadership, team working skills, decision-making, and problem-solving abilities.',
+      icon: '🌟',
+      date: 'Ongoing',
+    },
+    {
+      id: 'multilingual',
+      title: 'Multilingual Proficiency',
+      description: 'Fluent in Tamil, English, and Hindi, enabling effective communication across diverse teams.',
+      icon: '🗣️',
+      date: 'Ongoing',
+    },
+  ],
+  timeline: [
+    {
+      id: 'hslc',
+      year: '2023',
+      title: 'HSLC - 12th Grade',
+      institution: 'St. James Matric. Hr. Sec. School, Trichy',
+      description: 'Completed 12th Grade from Tamil Nadu State Board with 89.9% marks.',
+      type: 'education' as const,
+    },
+    {
+      id: 'university-start',
+      year: '2023 - 2027',
+      title: 'B.Tech in AI & Data Science',
+      institution: 'Rathinam Technical Campus, Coimbatore',
+      description: 'Pursuing Bachelor of Technology in Artificial Intelligence and Data Science with CGPA of 9.45.',
+      type: 'education' as const,
+    },
+    {
+      id: 'bootcamp',
+      year: 'Completed',
+      title: 'Full Stack Web Development Bootcamp',
+      institution: 'Marcello Tech, Trichy',
+      description: 'Learned to build dynamic web applications using HTML, CSS, and JavaScript.',
+      type: 'milestone' as const,
+    },
+  ],
+  socialLinks: [
+    {
+      platform: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/atchayasaran',
+      icon: '💼',
+    },
+    {
+      platform: 'GitHub',
+      url: 'https://github.com/Atchaya-62',
+      icon: '🐙',
+    },
+    {
+      platform: 'Email',
+      url: 'mailto:atchayasaran626@gmail.com',
+      icon: '📧',
+    },
+  ],
+};

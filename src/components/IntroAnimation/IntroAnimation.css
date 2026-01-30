@@ -1,0 +1,100 @@
+.intro-animation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 0%,
+    var(--color-primary) 50%,
+    var(--color-secondary) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.intro-animation-content {
+  text-align: center;
+  perspective: 1000px;
+}
+
+.intro-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+.intro-letter {
+  display: inline-block;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  color: var(--color-background);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.intro-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  color: var(--color-background);
+  opacity: 0.9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Ensure smooth animations */
+@media (prefers-reduced-motion: reduce) {
+  .intro-animation-overlay {
+    display: none;
+  }
+  
+  .intro-letter,
+  .intro-subtitle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro-name-container {
+    gap: 0.15rem;
+  }
+  
+  .intro-letter {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+  
+  .intro-subtitle {
+    font-size: clamp(0.875rem, 3vw, 1.25rem);
+    padding: 0 1rem;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .intro-animation-overlay {
+  background: linear-gradient(
+    135deg,
+    #111827 0%,
+    #1e3a8a 50%,
+    #6b21a8 100%
+  );
+}
+
+/* Futuristic theme adjustments */
+[data-theme="futuristic"] .intro-animation-overlay {
+  background: linear-gradient(
+    135deg,
+    #0F172A 0%,
+    #0e7490 50%,
+    #9f1239 100%
+  );
+}

@@ -1,0 +1,304 @@
+.skills-section {
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background);
+  color: var(--color-text);
+  position: relative;
+}
+
+.skills-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.skills-content {
+  width: 100%;
+}
+
+/* Section Header */
+.skills-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skills-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.05em;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.skill-category-section {
+  background: var(--card-background);
+  border: 2px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--card-shadow);
+}
+
+.skill-category-section:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--color-primary);
+}
+
+.skill-category-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--card-border);
+}
+
+.skill-category-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--card-background-hover);
+  border: 2px solid var(--card-border);
+  border-radius: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.skill-item:hover {
+  transform: translateX(12px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+  border-color: var(--color-secondary);
+  background: var(--card-background);
+}
+
+.skill-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.skill-proficiency {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.proficiency-bar {
+  width: 3px;
+  height: 24px;
+  background: transparent;
+  border: 2px solid rgba(155, 135, 245, 0.3);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.proficiency-bar.active {
+  background: linear-gradient(180deg, #d4bbff, #9b87f5);
+  border-color: #9b87f5;
+}
+
+[data-theme="dark"] .proficiency-bar {
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+[data-theme="dark"] .proficiency-bar.active {
+  background: linear-gradient(180deg, #60A5FA, #3b82f6);
+  border-color: #60A5FA;
+}
+
+.skill-item:hover .proficiency-bar.active {
+  animation: pulse-bar 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-bar {
+  0%, 100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleY(1.1);
+  }
+}
+
+/* Light theme specific adjustments */
+[data-theme="light"] .skill-category-section {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: var(--card-border);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .skill-item {
+  background: rgba(255, 245, 255, 0.4);
+  border-color: rgba(155, 135, 245, 0.15);
+}
+
+[data-theme="light"] .skill-item:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: var(--color-secondary);
+  box-shadow: 0 8px 24px rgba(155, 135, 245, 0.2);
+}
+
+[data-theme="light"] .proficiency-bar {
+  border-color: rgba(155, 135, 245, 0.25);
+}
+
+[data-theme="light"] .proficiency-bar.active {
+  background: linear-gradient(180deg, #d4bbff, #9b87f5);
+  border-color: #9b87f5;
+}
+
+/* Dark Theme Adjustments */
+[data-theme="dark"] .skill-category-section {
+  background: rgba(17, 24, 39, 0.6);
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+[data-theme="dark"] .skill-item {
+  background: rgba(17, 24, 39, 0.4);
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+[data-theme="dark"] .skill-item:hover {
+  background: rgba(17, 24, 39, 0.6);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+[data-theme="dark"] .proficiency-bar {
+  border-color: rgba(96, 165, 250, 0.25);
+}
+
+[data-theme="dark"] .proficiency-bar.active {
+  background: linear-gradient(180deg, #60A5FA, #3b82f6);
+  border-color: #60A5FA;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .skills-title {
+    font-size: 3rem;
+  }
+
+  .skills-subtitle {
+    font-size: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .skill-category-section {
+    padding: 1.5rem;
+  }
+
+  .skill-item {
+    padding: 0.875rem 1rem;
+  }
+
+  .skill-name {
+    font-size: 0.9375rem;
+  }
+
+  .skill-proficiency {
+    height: auto;
+  }
+
+  .proficiency-bar {
+    width: 3px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 3rem 1rem;
+  }
+
+  .skills-title {
+    font-size: 2.5rem;
+  }
+
+  .skill-category-section {
+    padding: 1.25rem;
+  }
+
+  .skill-item {
+    padding: 0.75rem 0.875rem;
+  }
+
+  .skill-name {
+    font-size: 0.875rem;
+  }
+
+  .skill-proficiency {
+    height: auto;
+  }
+
+  .proficiency-bar {
+    width: 3px;
+    height: 18px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .skill-item,
+  .skill-category-section,
+  .proficiency-bar {
+    transition: none;
+  }
+
+  .skill-item:hover .proficiency-bar.active {
+    animation: none;
+  }
+}
