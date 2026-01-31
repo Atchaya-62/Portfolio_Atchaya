@@ -31,7 +31,11 @@ const SectionLoader = () => (
   </div>
 );
 
-function MainPage() {
+interface MainPageProps {
+  isLoading?: boolean;
+}
+
+function MainPage({ isLoading = false }: MainPageProps) {
   const [activeSection, setActiveSection] = useState('home');
   const [showIntro, setShowIntro] = useState(true);
 
@@ -85,7 +89,9 @@ function MainPage() {
         />
       )}
       
-      <Navigation activeSection={activeSection} onNavigate={setActiveSection} />
+      {!showIntro && !isLoading && (
+        <Navigation activeSection={activeSection} onNavigate={setActiveSection} />
+      )}
       
       <main id="main-content" role="main">
         {/* Hero Section */}

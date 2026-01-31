@@ -46,7 +46,7 @@ function App() {
         <div className="app-container">
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
-              <Route path="/" element={<MainPage />} />
+              <Route path="/" element={<MainPage isLoading={showLoading} />} />
               <Route path="/connect" element={<ConnectPage />} />
             </Routes>
           </Suspense>
