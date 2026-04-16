@@ -5,7 +5,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  z-index: 0;
+  max-width: 100vw;
+  width: 100%;
 }
 
 .hero-particles {
@@ -14,15 +17,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  max-width: 100vw;
+  z-index: -1;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1200px;
+  max-width: min(1200px, 100%);
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .hero-main {
@@ -39,12 +44,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .hero-photo {
   position: relative;
-  width: 320px;
-  height: 380px;
+  width: min(320px, 80vw);
+  height: min(380px, 95vw);
+  max-width: 100%;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   overflow: hidden;
   padding: 4px;
@@ -113,6 +121,15 @@
   background-clip: text;
   background-size: 200% 200%;
   animation: gradientShift 3s ease infinite;
+}
+
+/* Light theme - Solid purple color */
+[data-theme="light"] .gradient-text {
+  background: #7b1fa2;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: none;
 }
 
 @keyframes gradientShift {
@@ -203,12 +220,22 @@
     sans-serif;
 }
 
+[data-theme="light"] .hero-role {
+  color: #532674;
+  opacity: 1;
+}
+
+[data-theme="dark"] .hero-role {
+  color: #D1D5DB;
+  opacity: 0.9;
+}
+
 .hero-about {
   font-size: 1rem;
   color: var(--text-secondary);
   margin-bottom: 1rem;
   line-height: 1.7;
-  max-width: 600px;
+  max-width: min(600px, 100%);
   font-weight: 400;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -220,7 +247,7 @@
   color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.7;
-  max-width: 600px;
+  max-width: min(600px, 100%);
   font-weight: 400;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -289,6 +316,7 @@
   background: rgba(255, 255, 255, 0.6);
   border-color: rgba(155, 135, 245, 0.3);
   backdrop-filter: blur(5px);
+  color: #532674;
 }
 
 .cta-social:hover {
@@ -313,7 +341,7 @@
     var(--color-secondary)
   );
   color: white;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(124, 108, 252, 0.3);
 }
 
 .cta-primary::after {
@@ -321,7 +349,7 @@
   position: absolute;
   inset: 0;
   border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(124, 108, 252, 0.4);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -356,13 +384,13 @@
 }
 
 .cta-social {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(124, 108, 252, 0.1);
   color: var(--color-text);
-  border: 2px solid rgba(59, 130, 246, 0.3);
+  border: 2px solid rgba(124, 108, 252, 0.3);
 }
 
 .cta-social:hover {
-  background: rgba(59, 130, 246, 0.2);
+  background: rgba(124, 108, 252, 0.2);
   border-color: var(--color-primary);
   transform: translate3d(0, -2px, 0);
 }
@@ -378,16 +406,20 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 1.5rem;
+    padding: 1rem;
     min-height: auto;
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
+  .hero-content {
+    padding: 0 0.5rem;
   }
 
   .hero-main {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .hero-text {
@@ -416,27 +448,27 @@
   }
 
   .hero-photo {
-    width: 250px;
-    height: 280px;
+    width: min(250px, 70vw);
+    height: min(280px, 80vw);
   }
 
   .hero-headline {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 8vw, 2rem);
     font-weight: 800;
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 5vw, 1.25rem);
     font-weight: 600;
   }
 
   .hero-role {
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 4vw, 1rem);
     font-weight: 400;
   }
 
   .hero-about {
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 4vw, 1rem);
     margin-left: auto;
     margin-right: auto;
     font-weight: 400;
@@ -452,24 +484,51 @@
 }
 
 @media (max-width: 480px) {
+  .hero-section {
+    padding: 0.75rem;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 0 0.25rem;
+  }
+
+  .hero-main {
+    gap: 1.5rem;
+  }
+
   .hero-photo {
-    width: 200px;
-    height: 240px;
+    width: min(180px, 60vw);
+    height: min(220px, 70vw);
   }
 
   .hero-headline {
-    font-size: 1.75rem;
+    font-size: clamp(1.25rem, 7vw, 1.5rem);
   }
 
   .hero-subtitle {
-    font-size: 1.125rem;
+    font-size: clamp(0.875rem, 4.5vw, 1rem);
   }
 
   .hero-role {
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+  }
+
+  .hero-description {
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
   }
 
   .cta-button {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+  }
+
+  .hero-cta {
+    gap: 0.75rem;
     width: 100%;
   }
 }

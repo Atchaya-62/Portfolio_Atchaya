@@ -46,7 +46,29 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 id="projects-heading" className="projects-title">Featured Projects</h2>
+          <motion.h2 
+            id="projects-heading" 
+            className="projects-title"
+            initial={{ opacity: 0, scale: 0.8, letterSpacing: '0.5em' }}
+            whileInView={{ 
+              opacity: 1, 
+              scale: 1, 
+              letterSpacing: '0.2em'
+            }}
+            whileHover={{
+              scale: 1.05,
+              textShadow: '0 0 20px rgba(155, 135, 245, 0.6)',
+              transition: { duration: 0.3 }
+            }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.6, 0.05, 0.01, 0.9]
+            }}
+            style={{ cursor: 'default' }}
+          >
+            FEATURED PROJECTS
+          </motion.h2>
           <p className="projects-subtitle">
             Explore my portfolio of AI, machine learning, and data science projects
           </p>

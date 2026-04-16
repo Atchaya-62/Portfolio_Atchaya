@@ -1,0 +1,55 @@
+/* Intro Style Background */
+.intro-style-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #080810;
+  overflow: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+.stars-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+}
+
+/* Vignette overlay */
+.vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(8, 8, 16, 0.85) 100%);
+  pointer-events: none;
+}
+
+/* Grid floor overlay */
+.grid-floor-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background-image:
+    linear-gradient(rgba(124, 108, 252, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 108, 252, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  transform: perspective(600px) rotateX(60deg);
+  transform-origin: bottom center;
+}
+
+/* Light theme - hide this background */
+[data-theme="light"] .intro-style-background {
+  display: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .stars-canvas {
+    display: none;
+  }
+}

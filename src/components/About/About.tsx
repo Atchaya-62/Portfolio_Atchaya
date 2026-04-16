@@ -51,7 +51,29 @@ const About: React.FC<AboutProps> = ({ fullBio }) => {
           {/* Profile Highlight Card */}
           <motion.div className="profile-highlight-card" variants={itemVariants}>
             <div className="profile-main">
-              <h2 id="about-heading" className="profile-title">Profile Highlight</h2>
+              <motion.h2 
+                id="about-heading" 
+                className="profile-title"
+                initial={{ opacity: 0, scale: 0.8, letterSpacing: '0.5em' }}
+                whileInView={{ 
+                  opacity: 1, 
+                  scale: 1, 
+                  letterSpacing: '0.1em'
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  textShadow: '0 0 20px rgba(155, 135, 245, 0.6)',
+                  transition: { duration: 0.3 }
+                }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.6, 0.05, 0.01, 0.9]
+                }}
+                style={{ cursor: 'default' }}
+              >
+                Profile Highlight
+              </motion.h2>
               <p className="profile-intro">{fullBio}</p>
 
               <div className="profile-details">

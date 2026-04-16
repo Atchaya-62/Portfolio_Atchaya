@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MenuItem } from '../../types';
 import { ThemeSwitcher } from '../shared';
+import { SpotlightNavbar, NavItem } from './SpotlightNavbar';
 import './Navigation.css';
 
 interface NavigationProps {
@@ -12,8 +13,18 @@ interface NavigationProps {
 
 const menuItems: MenuItem[] = [
   { id: 'home', label: 'Home', type: 'scroll', target: 'hero' },
+  { id: 'skills', label: 'Skills', type: 'scroll', target: 'skills' },
   { id: 'projects', label: 'Projects', type: 'scroll', target: 'projects' },
+  { id: 'certifications', label: 'Certifications', type: 'scroll', target: 'certifications' },
   { id: 'connect', label: 'Connect', type: 'route', target: '/connect' },
+];
+
+const navItems: NavItem[] = [
+  { label: 'Home', href: '#home' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Certifications', href: '#certifications' },
+  { label: 'Connect', href: '/connect' },
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({ 
@@ -117,9 +128,13 @@ export const Navigation: React.FC<NavigationProps> = ({
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      const navbarHeight = 100; // Approximate navbar height + some padding
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
     }
   };
@@ -147,48 +162,24 @@ export const Navigation: React.FC<NavigationProps> = ({
           </motion.a>
         </div>
 
-        {/* Desktop Menu */}
-        <ul className="navigation-menu desktop-menu" role="menubar">
-          {menuItems.map((item, index) => {
-            const isActive = currentActive === item.id;
-            
-            return (
-              <motion.li
-                key={item.id}
-                className="navigation-item"
-                role="none"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <button
-                  className={`navigation-link ${isActive ? 'active' : ''}`}
-                  onClick={() => handleMenuClick(item)}
-                  onKeyDown={(e) => handleKeyDown(e, item)}
-                  role="menuitem"
-                  aria-current={isActive ? 'page' : undefined}
-                  tabIndex={0}
-                >
-                  <span className="link-text">{item.label}</span>
-                  
-                  {isActive && (
-                    <motion.span
-                      className="active-indicator"
-                      layoutId="activeIndicator"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ 
-                        type: 'spring',
-                        stiffness: 380,
-                        damping: 30
-                      }}
-                    />
-                  )}
-                </button>
-              </motion.li>
-            );
-          })}
-        </ul>
+        {/* Desktop Menu - Spotlight Navbar */}
+        <div className="desktop-menu-wrapper">
+          <SpotlightNavbar
+            items={navItems}
+            defaultActiveIndex={navItems.findIndex(item => {
+              if (currentActive === 'home') return item.href === '#home';
+              if (currentActive === 'skills') return item.href === '#skills';
+              if (currentActive === 'projects') return item.href === '#projects';
+              if (currentActive === 'certifications') return item.href === '#certifications';
+              if (currentActive === 'connect') return item.href === '/connect';
+              return false;
+            })}
+            onItemClick={(item, index) => {
+              const menuItem = menuItems[index];
+              handleMenuClick(menuItem);
+            }}
+          />
+        </div>
 
         {/* Hamburger Menu Button */}
         <div className="navigation-actions">

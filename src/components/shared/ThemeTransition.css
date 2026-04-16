@@ -1,0 +1,40 @@
+/* Theme Transition Overlay - Radial Clip Path Animation */
+.theme-clip-path-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 600ms ease-in-out;
+  will-change: clip-path;
+}
+
+/* Light theme background */
+.light-theme-bg {
+  background: rgba(243, 240, 255, 1);
+}
+
+/* Dark theme background */
+.dark-theme-bg {
+  background: rgba(8, 8, 16, 1);
+}
+
+/* Active animation state - expand to 300% to fully cover all corners */
+.clip-path-active {
+  clip-path: circle(300% at 50% 50%);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .theme-clip-path-overlay {
+    transition: opacity 300ms ease;
+    clip-path: none;
+  }
+  
+  .clip-path-active {
+    opacity: 0;
+  }
+}

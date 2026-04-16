@@ -7,11 +7,11 @@
   color: #000000 !important;
 }
 
-/* Dark theme keeps white text */
+/* Dark theme - white text */
 [data-theme="dark"] .cert-card-title,
 [data-theme="dark"] .cert-card-issuer,
 [data-theme="dark"] .cert-card-date {
-  color: #F9FAFB !important;
+  color: #FFFFFF !important;
 }
 
 /* Hover state - white text for both themes */
@@ -51,19 +51,32 @@
 
 :root:not([data-theme="dark"]) .cert-modal-label {
   color: #111827 !important;
+  font-weight: 600 !important;
 }
 
 [data-theme="dark"] .cert-modal-title {
-  color: #E5E7EB !important;
+  color: #FFFFFF !important;
   font-size: 1.25rem !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
 }
 
 [data-theme="dark"] .cert-modal-text {
-  color: #9CA3AF !important;
+  color: #E5E7EB !important;
 }
 
 [data-theme="dark"] .cert-modal-label {
-  color: #D1D5DB !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+
+/* View Certificate button in light theme */
+:root:not([data-theme="dark"]) .cert-view-button {
+  background: linear-gradient(135deg, #9b87f5, #d4bbff) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .cert-view-button {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA) !important;
+  color: #FFFFFF !important;
 }

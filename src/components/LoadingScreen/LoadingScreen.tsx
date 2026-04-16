@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles } from '../shared/Sparkles';
+import DecryptedText from '../shared/DecryptedText';
 import './LoadingScreen.css';
 
 interface LoadingScreenProps {
@@ -15,9 +16,9 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
   useEffect(() => {
     const timer1 = setTimeout(() => setStage(1), 100);   // Start immediately
-    const timer2 = setTimeout(() => setStage(2), 800);   // Combine H
-    const timer3 = setTimeout(() => setStage(3), 1200);  // Show tagline
-    const timer4 = setTimeout(() => onComplete(), 2500); // Fade out (total 2.5s)
+    const timer2 = setTimeout(() => setStage(2), 1500);  // Mid animation
+    const timer3 = setTimeout(() => setStage(3), 2500);  // Show tagline
+    const timer4 = setTimeout(() => onComplete(), 4000); // Fade out (total 4s)
 
     return () => {
       clearTimeout(timer1);
@@ -75,73 +76,16 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
         {/* Main name animation */}
         <div className="name-container">
-          {/* ATC - slides in from left while H splits */}
-          <motion.span
+          <DecryptedText
+            text="ATCHAYA"
+            speed={80}
+            sequential={true}
+            revealDirection="start"
+            animateOn="view"
             className="letter"
-            initial={{ x: -150, opacity: 0 }}
-            animate={{ 
-              x: stage >= 1 ? 0 : -150, 
-              opacity: stage >= 1 ? 1 : 0 
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            ATC
-          </motion.span>
-
-          {/* H - Split and combine animation */}
-          <div className="h-container">
-            {/* Left bar of H - starts split, comes together */}
-            <motion.span
-              className="h-bar h-left-bar"
-              initial={{ x: -60, opacity: 1 }}
-              animate={{ 
-                x: stage >= 2 ? 0 : -60,
-                opacity: stage >= 3 ? 0 : 1
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            >
-              |
-            </motion.span>
-
-            {/* Right bar of H - starts split, comes together */}
-            <motion.span
-              className="h-bar h-right-bar"
-              initial={{ x: 60, opacity: 1 }}
-              animate={{ 
-                x: stage >= 2 ? 0 : 60,
-                opacity: stage >= 3 ? 0 : 1
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            >
-              |
-            </motion.span>
-
-            {/* Complete H appears */}
-            <motion.span
-              className="letter h-complete"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ 
-                scale: stage >= 3 ? 1 : 0,
-                opacity: stage >= 3 ? 1 : 0
-              }}
-              transition={{ duration: 0.4 }}
-            >
-              H
-            </motion.span>
-          </div>
-
-          {/* AYA - slides in from right while H splits */}
-          <motion.span
-            className="letter"
-            initial={{ x: 150, opacity: 0 }}
-            animate={{ 
-              x: stage >= 1 ? 0 : 150, 
-              opacity: stage >= 1 ? 1 : 0 
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            AYA
-          </motion.span>
+            encryptedClassName="letter encrypted"
+            parentClassName=""
+          />
         </div>
 
         {/* Sparkles Animation Below Name */}

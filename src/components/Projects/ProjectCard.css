@@ -75,12 +75,29 @@
   line-height: 1.3;
 }
 
+[data-theme="light"] .project-title {
+  color: #532674;
+}
+
+[data-theme="dark"] .project-title {
+  color: #f9fafb;
+}
+
 .project-description {
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--text-secondary, #4b5563);
   margin: 0;
   flex: 1;
+}
+
+[data-theme="light"] .project-description {
+  color: #532674;
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .project-description {
+  color: #d1d5db;
 }
 
 .project-tech-stack {
@@ -148,12 +165,13 @@
 }
 
 .demo-link {
-  background: #3b82f6;
+  background: linear-gradient(135deg, #7c6cfc, #fc6c8f);
   color: white;
 }
 
 .demo-link:hover {
-  background: #2563eb;
+  background: linear-gradient(135deg, #6b5ce0, #e85a7a);
+  box-shadow: 0 4px 12px rgba(124, 108, 252, 0.4);
 }
 
 .link-icon {
@@ -212,6 +230,50 @@
   .project-link {
     padding: 0.625rem 1rem;
     font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card-wrapper {
+    min-height: 380px;
+  }
+
+  .project-image {
+    height: 140px;
+  }
+
+  .project-content {
+    padding: 1rem;
+    gap: 0.875rem;
+  }
+
+  .project-title {
+    font-size: 1.125rem;
+  }
+
+  .project-description {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .tech-tag {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .project-links {
+    padding-top: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .project-link {
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .link-icon {
+    width: 1rem;
+    height: 1rem;
   }
 }
 

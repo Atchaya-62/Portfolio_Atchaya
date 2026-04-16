@@ -43,7 +43,7 @@
 }
 
 [data-theme="light"] .floating-term {
-  color: rgba(124, 58, 237, 0.15);
+  color: rgba(83, 38, 116, 0.2);
 }
 
 [data-theme="dark"] .floating-term {
@@ -65,7 +65,7 @@
 }
 
 [data-theme="light"] .name-container {
-  color: #7c3aed;
+  color: #532674;
 }
 
 [data-theme="dark"] .name-container {
@@ -74,6 +74,12 @@
 
 .letter {
   display: inline-block;
+  transition: opacity 0.1s ease, filter 0.1s ease;
+}
+
+.letter.encrypted {
+  opacity: 0.3;
+  filter: blur(4px);
 }
 
 /* H split animation */
@@ -142,7 +148,8 @@
 }
 
 [data-theme="light"] .tagline {
-  color: #7c3aed;
+  color: #532674;
+  font-weight: 500;
 }
 
 [data-theme="dark"] .tagline {

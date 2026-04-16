@@ -1,17 +1,15 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { Navigation } from '../components/Navigation';
-import { NeuralNetworkBackground } from '../components/shared';
+import { IntroStyleBackground, Footer } from '../components/shared';
 import { IntroAnimation } from '../components/IntroAnimation';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import ExpandableCertifications from '../components/CertificationBook/ExpandableCertifications';
 import { portfolioData } from '../data/portfolioData';
-import type { ContactFormData } from '../types';
 
 // Lazy load heavier components for better initial load performance
 const Projects = lazy(() => import('../components/Projects/Projects'));
-const Contact = lazy(() => import('../components/Contact/Contact'));
 
 // Loading fallback for lazy-loaded sections
 const SectionLoader = () => (
@@ -31,17 +29,13 @@ const SectionLoader = () => (
   </div>
 );
 
-interface MainPageProps {
-  isLoading?: boolean;
-}
-
-function MainPage({ isLoading = false }: MainPageProps) {
+function MainPage() {
   const [activeSection, setActiveSection] = useState('home');
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'certifications', 'achievements', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'certifications', 'achievements'];
       const scrollPosition = window.scrollY + 100; // Offset for navigation height
 
       for (const sectionId of sections) {
@@ -66,12 +60,6 @@ function MainPage({ isLoading = false }: MainPageProps) {
     setShowIntro(false);
   };
 
-  const handleContactSubmit = async (data: ContactFormData) => {
-    // Import and use the actual email service
-    const { submitContactForm } = await import('../services/formHandler');
-    await submitContactForm(data);
-  };
-
   return (
     <>
       {/* Skip to main content link for keyboard users */}
@@ -79,8 +67,8 @@ function MainPage({ isLoading = false }: MainPageProps) {
         Skip to main content
       </a>
 
-      {/* Neural Network Background */}
-      <NeuralNetworkBackground />
+      {/* Intro Style Background - matches the intro animation */}
+      <IntroStyleBackground />
 
       {showIntro && (
         <IntroAnimation 
@@ -89,7 +77,7 @@ function MainPage({ isLoading = false }: MainPageProps) {
         />
       )}
       
-      {!showIntro && !isLoading && (
+      {!showIntro && (
         <Navigation activeSection={activeSection} onNavigate={setActiveSection} />
       )}
       
@@ -123,13 +111,15 @@ function MainPage({ isLoading = false }: MainPageProps) {
         {/* Certifications Section */}
         <ExpandableCertifications certifications={portfolioData.certifications} />
 
-        {/* Contact Section */}
-        <Suspense fallback={<SectionLoader />}>
-          <Contact
-            onSubmit={handleContactSubmit}
-            socialLinks={portfolioData.socialLinks}
-          />
-        </Suspense>
+        {/* Footer */}
+        <Footer
+          name={portfolioData.owner.name}
+          socialLinks={{
+            github: portfolioData.social.github,
+            linkedin: portfolioData.social.linkedin,
+            email: portfolioData.social.email,
+          }}
+        />
       </main>
     </>
   );

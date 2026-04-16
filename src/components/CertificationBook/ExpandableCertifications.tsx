@@ -42,11 +42,25 @@ const ExpandableCertifications: React.FC<ExpandableCertificationsProps> = ({ cer
         <motion.h2
           id="certification-heading"
           className="text-4xl font-bold text-center mb-12 gradient-text"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, scale: 0.8, letterSpacing: '0.5em' }}
+          whileInView={{ 
+            opacity: 1, 
+            scale: 1, 
+            letterSpacing: '0.2em'
+          }}
+          whileHover={{
+            scale: 1.05,
+            textShadow: '0 0 20px rgba(155, 135, 245, 0.6)',
+            transition: { duration: 0.3 }
+          }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.6, 0.05, 0.01, 0.9]
+          }}
+          style={{ cursor: 'default' }}
         >
-          Certifications
+          CERTIFICATIONS
         </motion.h2>
 
         {/* Overlay */}
@@ -121,7 +135,7 @@ const ExpandableCertifications: React.FC<ExpandableCertificationsProps> = ({ cer
                         href={active.certificateUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors"
+                        className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white hover:bg-green-600 transition-colors cert-view-button"
                       >
                         View
                       </motion.a>
@@ -222,7 +236,7 @@ const ExpandableCertifications: React.FC<ExpandableCertificationsProps> = ({ cer
 
               <motion.button
                 layoutId={`button-${cert.id}-${id}`}
-                className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0 transition-colors"
+                className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 dark:bg-gray-700 hover:bg-[#f3f0ff] dark:hover:bg-[#111827] hover:text-black dark:hover:text-white text-black dark:text-white mt-4 md:mt-0 transition-colors"
               >
                 View Details
               </motion.button>

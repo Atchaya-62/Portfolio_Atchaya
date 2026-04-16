@@ -4,9 +4,8 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { ThemeSwitcher, NeuralNetworkBackground } from '../components/shared';
+import { IntroStyleBackground } from '../components/shared';
 import { portfolioData } from '../data/portfolioData';
-import type { ContactFormData } from '../types';
 import './ConnectPage.css';
 
 // Zod validation schema
@@ -15,6 +14,8 @@ const contactFormSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
+
+type ContactFormInput = z.infer<typeof contactFormSchema>;
 
 type SubmissionStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -26,12 +27,12 @@ function ConnectPage() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<ContactFormData>({
+  } = useForm<ContactFormInput>({
     resolver: zodResolver(contactFormSchema),
     mode: 'onChange',
   });
 
-  const onFormSubmit = async (data: ContactFormData) => {
+  const onFormSubmit = async (data: ContactFormInput) => {
     setSubmissionStatus('submitting');
     
     // Simulate form submission
@@ -95,11 +96,8 @@ function ConnectPage() {
         Skip to main content
       </a>
 
-      {/* Neural Network Background */}
-      <NeuralNetworkBackground />
-
-      {/* Theme Switcher Sidebar */}
-      <ThemeSwitcher />
+      {/* Intro Style Background */}
+      <IntroStyleBackground />
 
       <main id="main-content" role="main" className="connect-page">
         <div className="connect-container">

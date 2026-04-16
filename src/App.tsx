@@ -1,7 +1,7 @@
-import { lazy, Suspense, useState, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
-import LoadingScreen from './components/LoadingScreen';
+import { PageTransition } from './components/shared';
 
 // Lazy load route components for code splitting
 const ConnectPage = lazy(() => import('./pages/ConnectPage'));
@@ -25,34 +25,18 @@ const LoadingFallback = () => (
 );
 
 function App() {
-  // Always show loading screen on mount (every page load/reload)
-  const [showLoading, setShowLoading] = useState(true);
-
-  const handleLoadingComplete = () => {
-    setShowLoading(false);
-  };
-
-  // Reset loading screen on route changes
-  useEffect(() => {
-    setShowLoading(true);
-  }, []);
-
   return (
-    <>
-      {showLoading && (
-        <LoadingScreen onComplete={handleLoadingComplete} />
-      )}
-      <Router>
-        <div className="app-container">
-          <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<MainPage isLoading={showLoading} />} />
-              <Route path="/connect" element={<ConnectPage />} />
-            </Routes>
-          </Suspense>
-        </div>
-      </Router>
-    </>
+    <Router>
+      <div className="app-container">
+        <PageTransition />
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/connect" element={<ConnectPage />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </Router>
   );
 }
 

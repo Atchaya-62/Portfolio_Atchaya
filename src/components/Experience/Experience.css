@@ -1,11 +1,25 @@
 .experience-section {
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   background: var(--background);
   color: var(--text);
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
 }
 
 .experience-container {
@@ -40,6 +54,14 @@
   color: var(--text);
   position: relative;
   padding-left: 1.5rem;
+}
+
+[data-theme="light"] .subsection-title {
+  color: #532674;
+}
+
+[data-theme="dark"] .subsection-title {
+  color: #F9FAFB;
 }
 
 .subsection-title::before {
@@ -140,6 +162,14 @@
   margin: 0;
 }
 
+[data-theme="light"] .card-title {
+  color: #532674;
+}
+
+[data-theme="dark"] .card-title {
+  color: #F9FAFB;
+}
+
 .card-company {
   font-size: 1.125rem;
   font-weight: 500;
@@ -154,11 +184,29 @@
   font-style: italic;
 }
 
+[data-theme="light"] .card-duration {
+  color: #532674;
+  opacity: 0.8;
+}
+
+[data-theme="dark"] .card-duration {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .card-description {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-secondary, rgba(255, 255, 255, 0.8));
   margin: 0.5rem 0 0 0;
+}
+
+[data-theme="light"] .card-description {
+  color: #532674;
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .card-description {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .certification-card .card-description {
@@ -208,20 +256,48 @@
 @media (max-width: 480px) {
   .experience-section {
     padding: 3rem 1rem;
+    min-height: auto;
   }
 
   .experience-title {
     font-size: 1.75rem;
+    margin-bottom: 2.5rem;
   }
 
   .subsection-title {
     font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .experience-subsection {
+    margin-bottom: 3rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+    gap: 1.25rem;
   }
 
   .card-icon {
     font-size: 2rem;
     width: 3rem;
     height: 3rem;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+  }
+
+  .card-company {
+    font-size: 0.95rem;
+  }
+
+  .card-duration {
+    font-size: 0.8rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
   }
 }
 

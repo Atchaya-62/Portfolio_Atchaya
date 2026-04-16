@@ -76,7 +76,29 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
         >
           {/* Section Title */}
           <motion.div className="skills-header" variants={itemVariants}>
-            <h2 id="skills-heading" className="skills-title">STACK</h2>
+            <motion.h2 
+              id="skills-heading" 
+              className="skills-title"
+              initial={{ opacity: 0, scale: 0.8, letterSpacing: '0.5em' }}
+              whileInView={{ 
+                opacity: 1, 
+                scale: 1, 
+                letterSpacing: '0.2em'
+              }}
+              whileHover={{
+                scale: 1.05,
+                textShadow: '0 0 20px rgba(155, 135, 245, 0.6)',
+                transition: { duration: 0.3 }
+              }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.6, 0.05, 0.01, 0.9]
+              }}
+              style={{ cursor: 'default' }}
+            >
+              STACK
+            </motion.h2>
             <p className="skills-subtitle">The tools used to construct digital realities.</p>
           </motion.div>
 
