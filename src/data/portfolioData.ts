@@ -104,7 +104,7 @@ export const portfolioData: PortfolioData = {
       techStack: ['React', 'Node.js', 'AI/ML', 'YouTube API'],
       category: 'AI/ML',
       demoUrl: 'https://recall-ai-landing-page.vercel.app/',
-      imageUrl: '/recall.jpg',
+      imageUrl: 'https://drive.google.com/file/d/1E2ZUMV7qYSR2_eQuY2l-GtwLTuwiyC4v/view?usp=sharing',
     },
     {
       id: 'notinq-canteen-management',
@@ -113,7 +113,7 @@ export const portfolioData: PortfolioData = {
       techStack: ['React', 'Node.js', 'MongoDB', 'Express'],
       category: 'Web Development',
       demoUrl: 'https://notinq.netlify.app',
-      imageUrl: '/notinq.jpg',
+      imageUrl: 'https://drive.google.com/file/d/1ef9c-DO8ReT4IdM2zzyc5JH28TCLsmXa/view?usp=sharing',
     },
   ],
   experience: [
